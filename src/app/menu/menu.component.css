@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+*{
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 500;
+}
+
+nav ul li a{
+  color: #3B4487;
+}
+
+nav ul li a:hover{
+  color: #E94E52;
+  border-bottom:2px solid #E94E52;
+}
+
+.bege{
+  background-color: #FAF3EB;
+}

@@ -1,0 +1,20 @@
+.fa{
+    font-size: 25pt;
+    color: black;
+    padding: 10px;
+}
+
+.fa-linkedin-square:hover{
+    color:#0072b1;
+}
+
+.fa-github:hover{
+    color:#ff0000;
+}
+
+.img-sm{
+    width: 200px;
+    height: 200px;
+    /* justify-content: center;
+    align-items: center; */
+}

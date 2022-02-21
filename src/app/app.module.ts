@@ -9,6 +9,8 @@ import { SobreComponent } from './sobre/sobre.component';
 import { HomeComponent } from './home/home.component';
 import { ContatoComponent } from './contato/contato.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     SobreComponent,
     HomeComponent,
-    ContatoComponent
+    ContatoComponent,
+    CadastroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

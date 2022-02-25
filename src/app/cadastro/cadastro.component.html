@@ -2,29 +2,54 @@
     <div class="row">
         <div class="d-flex justify-content-center pt-5">
 <form>
+
     <div class="form-row">
         <div class="form-group col-md-6 offset-md-3">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4"
-            placeholder="exemplo@exemplo.com">
-        </div>
-
-        <div class="form-group col-md-6 offset-md-3">
-            <label for="inputPassword4">Senha</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo" [(ngModel)]="usuario.nome">
         </div>
     </div>
 
     <div class="form-row">
+        <div class="form-group col-md-6 offset-md-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email"
+            placeholder="exemplo@exemplo.com" [(ngModel)]="usuario.email">
+        </div>
+
+        <div class="form-group col-md-6 offset-md-3">
+            <label for="senha">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" (input)="confirmSenha($event)">
+        </div>
+
+        <div class="form-group col-md-6 offset-md-3">
+            <label for="confirmSenha">Confirmar Senha</label>
+            <input type="password" class="form-control" id="confirmSenha" name="confirmSenha" placeholder="Digite a senha novamente"
+            [(ngModel)]="usuario.senha">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6 offset-md-3">
+            <label for="linkFoto">Foto</label>
+            <input type="text" class="form-control" id="linkFoto" name="linkFoto" placeholder="Link da Foto" [(ngModel)]="usuario.foto">
+        </div>
+    </div>
+
+    <!-- <div class="form-row">
     <div class="form-group col-md-6 offset-md-3">
         <label for="inputAddress">Endereço</label>
         <input type="text" class="form-control" id="inputAddress" placeholder="Ex.Rua Numero Bairro">
     </div>
 </div>
-    <!-- <div class="form-group">
-        <label for="inputAddress2">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div> -->
+    -->
+
+    <!-- <div class="form-row">
+    <div class="form-group col-md-6 offset-md-3">
+        <label for="inputZip">CEP</label>
+        <input type="text" class="form-control" id="inputZip" placeholder="Ex.12345-678">
+    </div>
+</div>
 
     <div class="form-row ">
         <div class="form-group col-md-6 offset-md-3">
@@ -65,17 +90,12 @@
                 <option>Tocantins (TO)</option>
             </select>
         </div>
-
-        <div class="form-group col-md-6 offset-md-3">
-            <label for="inputZip">CEP</label>
-            <input type="text" class="form-control" id="inputZip" placeholder="Ex.12345-678">
-        </div>
-        
+    
     <div class="form-group col-md-6 offset-md-3">
                             <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                             <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
                             <div class="help-block with-errors"></div>
-                        </div>
+                        </div> -->
     <!-- <div class="form-group">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -83,9 +103,9 @@
                 Check me out
             </label>
         </div>
-    </div> -->
-</div>
-    <button type="submit" class="btn btn-primary offset-md-3 mr-2">Cadastrar</button>
+    </div> 
+</div>-->
+    <button type="submit" class="btn btn-primary offset-md-3 mr-2" (click)="cadastrar()">Cadastrar</button>
     <button class="btn btn-danger" type="submit" routerLink="/home">Cancelar</button>
     </form>
 </div>

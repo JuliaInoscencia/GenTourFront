@@ -36,7 +36,7 @@ export class CadastroComponent implements OnInit {
       this.auth.cadastrar(this.usuario).subscribe((resp:Usuario) =>{
         this.usuario = resp;
         alert('Usuario criado com sucesso.')
-        this.route.navigate(['/entrar'])
+        this.route.navigate(['/home'])
       } )
     }
 

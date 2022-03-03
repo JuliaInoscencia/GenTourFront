@@ -53,13 +53,14 @@
       <div class="dropdown">
         <a class="dropdown-toggle d-flex align-items-start hidden-arrow mr-5 ml-5" href="#" id="navbarDropdownMenuAvatar"
           role="button" data-toggle="dropdown" aria-expanded="false">
-          <img src="../../assets/img/GenTourLogo.jpeg" class="rounded-circle" height="45"
-            alt="Foto de Perfil" loading="lazy" />
+          <img src="{{foto}}" class="rounded-circle img-fluid" height="45"
+            alt="Foto de Perfil"/>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
           <li>
-            <a class="dropdown-item" href="#" routerLink="/login">Entrar</a>
-          </li>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logar">
+              Entrar
+            </a>
           <li>
             <a class="dropdown-item" href="#" routerLink="/contato">Contato</a>
           </li>
@@ -74,3 +75,37 @@
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
+
+<!-- Modal -->
+<div class="modal fade" id="logar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com" [(ngModel)]="usuarioLogin.email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="senha">Senha</label>
+          <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" [(ngModel)]="usuarioLogin.senha">
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="logar()">Entrar</button>
+      </div>
+    </div>
+  </div>
+</div>

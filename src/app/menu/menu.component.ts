@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { UsuarioLogin } from '../model/UsuarioLogin';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +11,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  usuarioLogin: UsuarioLogin = new UsuarioLogin
+  foto = environment.foto
 
-  ngOnInit(): void {
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    window.scroll(0,0)
   }
 
+  logar() {
+    this.auth.entrar(this.usuarioLogin).subscribe({
+      next: (resp: UsuarioLogin) => {
+        this.usuarioLogin = resp
+        this.router.navigate(['/home'])
+
+        environment.nome =this.usuarioLogin.nome
+        environment.foto =this.usuarioLogin.foto
+        environment.id =this.usuarioLogin.id
+        environment.token =this.usuarioLogin.token
+      },
+      error: erro => {
+        if (erro.status == 401) {
+          alert('Usuário ou senha incorretos!')
+        }
+      }
+    })
+  }
+
+  sair() {
+    this.router.navigate(['/home'])
+    environment.token = ''
+    environment.nome = ''
+    environment.foto = ''
+    environment.id = 0
+  }
 }

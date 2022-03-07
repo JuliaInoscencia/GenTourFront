@@ -15,7 +15,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TipoComponent } from './tipo/tipo.component';
-import { TemaComponent } from './tema/tema.component';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +28,7 @@ import { TemaComponent } from './tema/tema.component';
     CadastroComponent,
     LoginComponent,
     TipoComponent,
-    TemaComponent,
-
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -19,6 +19,10 @@ export class TipoService {
     return this.http.get<Tipos[]>('https://gentour.herokuapp.com/tipo', this.token)
   }
 
+  getByIdTipo(id: number): Observable<Tipos>{
+    return this.http.get<Tipos>(`https://gentour.herokuapp.com/tipo/${id}`, this.token)
+  }
+
   postTipo(tipo: Tipos): Observable<Tipos>{
     return this.http.post<Tipos>('https://gentour.herokuapp.com/tipo/save', tipo, this.token)
   }

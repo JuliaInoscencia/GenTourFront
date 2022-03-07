@@ -11,7 +11,8 @@ import { AuthService } from '../service/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  usuarioLogin: UsuarioLogin = new UsuarioLogin
+  usuarioLogin: UsuarioLogin = new UsuarioLogin()
+  nome = environment.nome
   foto = environment.foto
 
   constructor(
@@ -27,7 +28,7 @@ export class MenuComponent implements OnInit {
     this.auth.entrar(this.usuarioLogin).subscribe({
       next: (resp: UsuarioLogin) => {
         this.usuarioLogin = resp
-        this.router.navigate(['/home'])
+        this.router.navigate(['/tipo'])
 
         environment.nome =this.usuarioLogin.nome
         environment.foto =this.usuarioLogin.foto

@@ -15,6 +15,12 @@ export class AuthService {
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+  
+  refreshToken() {
+    this.token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+  }
 
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
     return this.http.post<UsuarioLogin>("https://gentour.herokuapp.com/usuario/logar", usuarioLogin)

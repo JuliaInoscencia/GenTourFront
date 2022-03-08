@@ -3,9 +3,9 @@ import { Usuario } from "./Usuario";
 
 export class Tipos{
   public id: number;
-  public tipoTurismo: string;
+  public categoria: string;
   public local: string;
-  public temporada: string;
+  public descricao: string;
 
   public usuario: Usuario;
   public turismo: Turismo;

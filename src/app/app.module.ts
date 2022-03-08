@@ -13,6 +13,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 import { TipoComponent } from './tipo/tipo.component';
 import { TipoEditComponent } from './edit/tipo-edit/tipo-edit.component';
 import { TipoDeleteComponent } from './delete/tipo-delete/tipo-delete.component';
@@ -27,6 +28,7 @@ import { TipoDeleteComponent } from './delete/tipo-delete/tipo-delete.component'
     HomeComponent,
     ContatoComponent,
     CadastroComponent,
+
     TipoComponent,
     TipoEditComponent,
     TipoDeleteComponent,

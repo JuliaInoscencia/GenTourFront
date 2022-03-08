@@ -13,12 +13,12 @@
                 <div class="col-md-3">
                     <div class="form-group">
 
-                        <input type="text" class="form-control" id="tipoTurismo" placeholder="Digite o tipo de turismo"
-                            [(ngModel)]="tipo.tipoTurismo">
+                        <input type="text" class="form-control" id="tipoTurismo" placeholder="Digite a Categoria"
+                            [(ngModel)]="tipo.categoria">
                         <input type="text" class="form-control mt-3" id="local" placeholder="Digite a localização"
                             [(ngModel)]="tipo.local">
-                        <input type="text" class="form-control mt-3" id="temporada" placeholder="Digite a temporada"
-                            [(ngModel)]="tipo.temporada">
+                        <input type="text" class="form-control mt-3" id="temporada" placeholder="Digite uma descrição"
+                            [(ngModel)]="tipo.descricao">
                     </div>
 
                     <div class="d-flex justify-content-center">
@@ -40,21 +40,21 @@
         </div>
     </div>
 
-    <div class="row mt-3 mb-5 d-flex justify-content-center">
+    <div class="row mt-3 mb-5 d-flex justify-content-around">
         <div class="col-md-6">
             <table class="table table-hover table-dark">
               <thead>
                 <tr>
-                  <th scope="col">Tipo</th>
+                  <th scope="col">Categoria</th>
                   <th scope="col">Local</th>
-                  <th scope="col">Temporada</th>
+                  <th scope="col">Descrição</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let tipo of listaTipos">
-                  <td>{{tipo.tipoTurismo}}</td>
+                  <td>{{tipo.categoria}}</td>
                   <td>{{tipo.local}}</td>
-                  <td>{{tipo.temporada}}</td>
+                  <td>{{tipo.descricao}}</td>
                   <td class="d-flex justify-content-end">
                     <button class="btn btn-info mr-3" [routerLink]="['/tipo-edit', tipo.id]">Editar</button>
                     <button class='btn btn-danger' [routerLink]="['/tipo-delete', tipo.id]">Apagar</button>

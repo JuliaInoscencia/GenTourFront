@@ -39,7 +39,7 @@ export class TipoDeleteComponent implements OnInit {
 
   apagar() {
     this.tipoService.deleteTipo(this.idTipo).subscribe(() => {
-      alert('Tipo apagago com sucesso!')
+      alert('Tipo apagado com sucesso!')
       this.router.navigate(['/tipo'])
     })
   }

@@ -9,23 +9,23 @@ import { Turismo } from '../model/Turismo';
 })
 export class TurismoService {
 
-  constructor(private http: HttpClient) {} 
+  constructor(private http: HttpClient) {}
 
     token = {
       headers: new HttpHeaders().set('Authorization', environment.token)
     }
     getAllTurismo(): Observable <Turismo[]>{
-      return this.http.get<Turismo[]>('https://gentour.herokuapp.com/turismo', this.token)
+      return this.http.get<Turismo[]>('https://gentour.herokuapp.com/turismo')
     }
-    
+
     getByIdTurismo(id: number): Observable<Turismo>{
-      return this.http.get<Turismo>(`https://gentour.herokuapp.com/turismo/${id}`, this.token)
+      return this.http.get<Turismo>(`https://gentour.herokuapp.com/turismo/${id}`)
     }
-    
+
     postTurismo(turismo:Turismo): Observable<Turismo>{
       return this.http.post<Turismo>('https://gentour.herokuapp.com/turismo/save', turismo, this.token)
     }
-    
+
     putTurismo(turismo:Turismo): Observable<Turismo>{
       return this.http.put<Turismo>('https://gentour.herokuapp.com/turismo/update', turismo, this.token)
     }

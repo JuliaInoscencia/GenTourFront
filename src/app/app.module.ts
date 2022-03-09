@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TipoComponent } from './tipo/tipo.component';
 import { TipoEditComponent } from './edit/tipo-edit/tipo-edit.component';
 import { TipoDeleteComponent } from './delete/tipo-delete/tipo-delete.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { TipoDeleteComponent } from './delete/tipo-delete/tipo-delete.component'
     TipoComponent,
     TipoEditComponent,
     TipoDeleteComponent,
+    InicioComponent,
     ],
   imports: [
     BrowserModule,

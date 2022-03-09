@@ -7,9 +7,11 @@ import { ContatoComponent } from './contato/contato.component';
 import { TipoComponent } from './tipo/tipo.component';
 import { TipoEditComponent } from './edit/tipo-edit/tipo-edit.component';
 import { TipoDeleteComponent } from './delete/tipo-delete/tipo-delete.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
-    {path:'', redirectTo:"home", pathMatch:'full'},
+    {path:'', redirectTo:"inicio", pathMatch:'full'},
+    {path:'inicio', component: InicioComponent},
     {path:'home', component: HomeComponent},
     {path:'sobre', component: SobreComponent},
     {path:'cadastro', component: CadastroComponent},
@@ -18,9 +20,6 @@ const routes: Routes = [
     {path:'tipo', component: TipoComponent},
     {path:'tipo-edit/:id', component: TipoEditComponent},
     {path:'tipo-delete/:id', component: TipoDeleteComponent}
-
-
-
 
 
 ];

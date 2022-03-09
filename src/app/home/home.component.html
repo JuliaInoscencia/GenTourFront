@@ -1,11 +1,7 @@
 <div data-interval="2500" id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <!-- <img src="../../assets/img/Chapada.jpg" class="d-block w-100" alt="..."> -->
-      <img src="https://cutewallpaper.org/23/wallpaper-rio-de-janeiro-4k/1732813869.jpg" class="d-block w-100" alt="...">
+      <img src="../../assets/img/arraial-do-cabo.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img src="../../assets/img/praia.jpg" class="d-block w-100" alt="...">
@@ -16,7 +12,52 @@
   </div>
 </div>
 
-<div class="card-deck m-0 p-0 mt-5">
+<div class="mt-5">
+  <hr>
+</div>
+
+<div class="container-fluid">
+  <div class="row bege d-flex align-items-center">
+    <!--Left Side-->
+<div class="col-md-6">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 azul">
+      <h1>Cadastre uma nova atração turística!</h1>
+    </div>
+  </div>
+
+  <!--Buttons-->
+  <div class="row d-flex justify-content-center mt-3 m">
+    <div class="col-md-6">
+      <button class="btn btn-dark mr-3" data-toggle="modal" data-target="#novoTurismo">Novo Cadastro</button>
+      <a class="btn btn-outline-dark" href="#">Suas Atrações</a>
+    </div>
+  </div>
+  <!--Buttons-->
+
+</div>
+<!--/Left Side-->
+
+
+<!--Right Side-->
+<div class="col-md-6 d-flex justify-content-center">
+  <img src="../../assets/gif/Road trip.gif" alt="" width="500" height="500">
+</div>
+<!--/Right Side-->
+  </div>
+</div>
+
+<div class="mt-5">
+  <hr>
+</div>
+
+<!--Destaques-->
+<div>
+  <h2>
+    Destaques
+  </h2>
+  <div class="card-deck m-0 p-0 mt-5">
     <div class="card">
       <img src="../../assets/img/cataratas-do-iguacu-1280x720.jpg" class="card-img-top" alt="...">
       <div class="card-body">
@@ -42,3 +83,77 @@
       </div>
     </div>
   </div>
+</div>
+<!--/Destaques-->
+
+<!-- Modal -->
+<div class="modal fade" id="novoTurismo" tabindex="-1" role="dialog"
+  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Nova Atração Turística</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="titulo">Atração</label>
+          <input type="text" class="form-control" id="atracao" placeholder="Digite sua atração" [(ngModel)]="turismo.atracao">
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Hospedagem</label>
+          <select class="form-control" name="hospedagem" id="hospedagem" [(ngModel)]="turismo.hospedagem">
+            <option>
+              Selecione uma opção
+            </option>
+            <option value="">
+              Sim
+            </option>
+            <option value="">
+              Não
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="preco">Preço</label>
+          <input type="number" class="form-control" id="preco" placeholder="Digite o valor: R$" [(ngModel)]="turismo.preco">
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Locomoção</label>
+          <select class="form-control" name="locomocao" id="locomocao" [(ngModel)]="turismo.locomocao">
+            <option>
+              Selecione uma opção
+            </option>
+            <option value="">
+              Sim
+            </option>
+            <option value="">
+              Não
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Foto</label>
+          <input type="text" class="form-control" id="foto" placeholder="Link da foto:" [(ngModel)]="turismo.foto">
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Descrição</label>
+          <textarea class="form-control" name="descricao" id="descricao" cols="" rows="3" placeholder="Descreva a atração:" [(ngModel)]="turismo.descricao">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)="cadastrar()" data-dismiss="modal">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+</div>

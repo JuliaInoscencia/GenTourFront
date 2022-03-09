@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   usuarioLogin: UsuarioLogin = new UsuarioLogin()
   nome = environment.nome
-  foto = '<i class="fa fa-user" aria-hidden="true"></i>'
+  foto = '../../assets/img/userIcon.png'
 
 
   constructor(

@@ -29,6 +29,9 @@ export class AuthService {
   cadastrar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>("https://gentour.herokuapp.com/usuario/cadastrar", usuario)
   }
+  getUsuarioById(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`https://gentour.herokuapp.com/usuario/${id}`, this.token)
+  }
   logado() {
     let ok: boolean = false
 

@@ -13,7 +13,8 @@ export class MenuComponent implements OnInit {
 
   usuarioLogin: UsuarioLogin = new UsuarioLogin()
   nome = environment.nome
-  foto = environment.foto
+  foto = '<i class="fa fa-user" aria-hidden="true"></i>'
+
 
   constructor(
     private auth: AuthService,
@@ -33,7 +34,11 @@ export class MenuComponent implements OnInit {
         environment.nome =this.usuarioLogin.nome
         environment.foto =this.usuarioLogin.foto
         environment.id =this.usuarioLogin.id
-        environment.token =this.usuarioLogin.token
+        environment.token = this.usuarioLogin.token
+
+        this.foto = environment.foto
+
+        console.log(environment)
       },
       error: erro => {
         if (erro.status == 401) {

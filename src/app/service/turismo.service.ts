@@ -14,6 +14,13 @@ export class TurismoService {
     token = {
       headers: new HttpHeaders().set('Authorization', environment.token)
     }
+
+    refreshToken(){
+      this.token = {
+        headers: new HttpHeaders().set('Authorization', environment.token)
+      }
+    }
+
     getAllTurismo(): Observable <Turismo[]>{
       return this.http.get<Turismo[]>('https://gentour.herokuapp.com/turismo')
     }

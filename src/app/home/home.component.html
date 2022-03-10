@@ -62,13 +62,15 @@
       <img src="{{turismo.foto}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{turismo.atracao}}</h5>
-        <p class="card-text">{{turismo.hospedagem}},{{turismo.locomocao}}</p>
-        <p class="card-text"><small class="text-muted" >Last updated 3 mins ago</small></p>
+        <p class="card-text">Hospedagem: {{turismo.hospedagem}}<br>
+          Locomoção: {{turismo.locomocao}}</p>
+        <p class="card-text text-right">{{turismo.preco | currency: "BRL"}}</p>
       </div>
     </div>
   </div>
 </div>
 <!--/Destaques-->
+
 
 <!-- Modal -->
 <div class="modal fade" id="novoTurismo" tabindex="-1" role="dialog"
@@ -99,10 +101,10 @@
             <option>
               Selecione uma opção
             </option>
-            <option value="">
+            <option value="sim">
               Sim
             </option>
-            <option value="">
+            <option value="nao">
               Não
             </option>
           </select>
@@ -110,7 +112,7 @@
 
         <div class="form-group">
           <label for="preco">Preço</label>
-          <input type="number" class="form-control" id="preco" placeholder="Digite o valor: R$" [(ngModel)]="turismo.preco">
+          <input currencyMask [options]="{prefix: 'R$', thousands:'.', decimal:'.', align: 'left'}" class="form-control" id="preco" placeholder="Digite o valor: R$" [(ngModel)]="turismo.preco">
         </div>
 
         <div class="form-group">
@@ -119,10 +121,10 @@
             <option>
               Selecione uma opção
             </option>
-            <option value="">
+            <option value="sim">
               Sim
             </option>
-            <option value="">
+            <option value="nao">
               Não
             </option>
           </select>
@@ -131,6 +133,19 @@
         <div class="form-group">
           <label for="titulo">Foto</label>
           <input type="text" class="form-control" id="foto" placeholder="Link da foto:" [(ngModel)]="turismo.foto">
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">
+            Escolha um tipo ou <a data-dismiss="modal" routerLink="/tipo">Cadastre um novo: </a>
+          </label>
+
+          <select class='form-control' name="tipo" id="tipo" [(ngModel)]="idTipos" (change)="findTiposById()">
+            <option *ngFor="let tipo of listaTipos" value="{{tipo.id}} ">
+              {{tipo.categoria}}
+            </option>
+
+          </select>
         </div>
 
         <div class="form-group">

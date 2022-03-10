@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
 
   turismo: Turismo = new Turismo();
   listaTurismo: Turismo[]
+  listaFiltrada: any = []
 
   constructor(
     private router: Router, 
@@ -33,13 +34,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll(0,0)
     if (environment.token == '') {
       alert('Sua sessão expirou, faça o login novamente.')
       this.router.navigate(['/inicio'])
     }
-
-    this.authService.refreshToken(),
-    this.getAllTipos(),
+    this.turismoService.refreshToken()
+    this.authService.refreshToken()
+    this.getAllTipos()
     this.getAllTurismos()
   }
   getAllTipos(){
@@ -55,6 +57,7 @@ export class HomeComponent implements OnInit {
   getAllTurismos(){
     this.turismoService.getAllTurismo().subscribe((resp: Turismo[])=>{
       this.listaTurismo = resp
+      this.listaFiltrada = this.listaTurismo.sort((a, b) => a.preco - b.preco).slice(0,8)
     })
   }
   findUsuarioById(){
@@ -63,12 +66,14 @@ export class HomeComponent implements OnInit {
     })
   }
   cadastrar(){
+    
     this.tipo.id = this.idTipos
     this.turismo.tipo = this.tipo
-
+    
     this.usuario.id = this.idUsuario
     this.turismo.usuario = this.usuario
-
+    
+    console.log(this.turismo)
     this.turismoService.postTurismo(this.turismo).subscribe((resp: Turismo)=>{
       this.turismo = resp
     alert('Cadastrado com sucesso! 🏖')

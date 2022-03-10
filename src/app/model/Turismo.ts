@@ -9,6 +9,7 @@ export class Turismo{
   public preco: number;
   public locomocao: string;
   public foto: string;
+  public temporada: string;
 
   public tipo: Tipos
   public usuario: Usuario

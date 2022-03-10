@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Tipos } from '../model/Tipos';
+import { AuthService } from '../service/auth.service';
 import { TipoService } from '../service/tipo.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class TipoComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private tipoService: TipoService
+    private tipoService: TipoService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(){
@@ -27,6 +29,7 @@ export class TipoComponent implements OnInit {
     }
 
     this.findAllTipos()
+    this.authService.refreshToken()
 
   }
 

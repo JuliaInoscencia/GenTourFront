@@ -58,28 +58,12 @@
     Destaques
   </h2>
   <div class="card-deck m-0 p-0 mt-5">
-    <div class="card">
-      <img src="../../assets/img/cataratas-do-iguacu-1280x720.jpg" class="card-img-top" alt="...">
+    <div class="card" *ngFor="let turismo of listaTurismo">
+      <img src="{{turismo.foto}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.A ordem dos tratores não altera o pão duris.Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis.Leite de capivaris, leite de mula manquis sem cabeça.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../assets/img/1280x720.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Mais vale um bebadis conhecidiss, que um alcoolatra anonimis.Mé faiz elementum girarzis, nisi eros vermeio.Quem num gosta di mé, boa gentis num é.Diuretics paradis num copo é motivis de denguis.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../assets/img/Serra da Mantiqueira.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Mais vale um bebadis conhecidiss, que um alcoolatra anonimis.Mé faiz elementum girarzis, nisi eros vermeio.Quem num gosta di mé, boa gentis num é.Diuretics paradis num copo é motivis de denguis.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title">{{turismo.atracao}}</h5>
+        <p class="card-text">{{turismo.hospedagem}},{{turismo.locomocao}}</p>
+        <p class="card-text"><small class="text-muted" >Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
@@ -102,6 +86,11 @@
         <div class="form-group">
           <label for="titulo">Atração</label>
           <input type="text" class="form-control" id="atracao" placeholder="Digite sua atração" [(ngModel)]="turismo.atracao">
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Temporada</label>
+          <input type="text" class="form-control" id="temporada" placeholder="Digite sua atração" [(ngModel)]="turismo.temporada">
         </div>
 
         <div class="form-group">
@@ -146,7 +135,7 @@
 
         <div class="form-group">
           <label for="titulo">Descrição</label>
-          <textarea class="form-control" name="descricao" id="descricao" cols="" rows="3" placeholder="Descreva a atração:" [(ngModel)]="turismo.descricao">
+          <textarea class="form-control" name="descricao" id="descricao" cols="" rows="3" placeholder="Descreva a atração:" [(ngModel)]="turismo.descricao"></textarea>
         </div>
 
       </div>

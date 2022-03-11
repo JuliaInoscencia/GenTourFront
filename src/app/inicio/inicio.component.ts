@@ -17,9 +17,4 @@ export class InicioComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  entrar() {
-
-    this.router.navigate(['/home'])
-  }
-
 }

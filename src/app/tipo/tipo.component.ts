@@ -45,6 +45,8 @@ export class TipoComponent implements OnInit {
       alert('Tipo Cadastrado com sucesso!🚐')
       this.findAllTipos()
       this.tipo = new Tipos();
+
+      console.log(this.tipo)
     })
   }
 }

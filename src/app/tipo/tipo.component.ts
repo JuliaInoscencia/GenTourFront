@@ -28,9 +28,9 @@ export class TipoComponent implements OnInit {
       this.router.navigate(['/home'])
     }
 
-    this.findAllTipos()
+    this.tipoService.refreshToken()
     this.authService.refreshToken()
-
+    this.findAllTipos()
   }
 
   findAllTipos(){
@@ -45,6 +45,8 @@ export class TipoComponent implements OnInit {
       alert('Tipo Cadastrado com sucesso!🚐')
       this.findAllTipos()
       this.tipo = new Tipos();
+
+      console.log(this.tipo)
     })
   }
 }

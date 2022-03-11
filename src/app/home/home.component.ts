@@ -40,12 +40,13 @@ export class HomeComponent implements OnInit {
       alert('Sua sessão expirou, faça o login novamente.')
       this.router.navigate(['/home'])
     }
+    this.tipoService.refreshToken()
     this.turismoService.refreshToken()
     this.authService.refreshToken()
     this.getAllTipos()
     this.getAllTurismos()
   }
-  
+
   getAllTipos(){
     this.tipoService.getAllTipo().subscribe((resp: Tipos[])=>{
       this.listaTipos = resp

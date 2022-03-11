@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './service/auth.service';
 
 @Component({
@@ -8,7 +9,11 @@ import { AuthService } from './service/auth.service';
 })
 export class AppComponent {
 
+  router: string
   constructor(
-    public auth: AuthService
-  ) { }
+    public auth: AuthService,
+    public route: Router
+  ) {
+
+  }
 }

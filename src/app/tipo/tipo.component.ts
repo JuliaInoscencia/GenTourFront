@@ -28,9 +28,9 @@ export class TipoComponent implements OnInit {
       this.router.navigate(['/home'])
     }
 
-    this.findAllTipos()
+    this.tipoService.refreshToken()
     this.authService.refreshToken()
-
+    this.findAllTipos()
   }
 
   findAllTipos(){

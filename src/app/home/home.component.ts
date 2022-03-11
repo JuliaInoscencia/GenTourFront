@@ -14,7 +14,7 @@ import { TurismoService } from '../service/turismo.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
+
   tipo: Tipos = new Tipos();
   listaTipos: Tipos[];
   idTipos: number
@@ -27,23 +27,28 @@ export class HomeComponent implements OnInit {
   listaFiltrada: any = []
 
   constructor(
-    private router: Router, 
-    private turismoService: TurismoService, 
-    private tipoService: TipoService, 
-    private authService: AuthService) { 
+    private router: Router,
+    private turismoService: TurismoService,
+    private tipoService: TipoService,
+    private authService: AuthService) {
   }
 
   ngOnInit() {
-    window.scroll(0,0)
-    if (environment.token == '') {
-      alert('Sua sessão expirou, faça o login novamente.')
-      this.router.navigate(['/inicio'])
-    }
+    window.scroll(0, 0)
+
+    // if (environment.token == '') {
+    //   alert('Sua sessão expirou, faça o login novamente.')
+    //   this.router.navigate(['/home'])
+    // }
+
+    
+    this.tipoService.refreshToken()
     this.turismoService.refreshToken()
     this.authService.refreshToken()
     this.getAllTipos()
     this.getAllTurismos()
   }
+
   getAllTipos(){
     this.tipoService.getAllTipo().subscribe((resp: Tipos[])=>{
       this.listaTipos = resp
@@ -66,13 +71,13 @@ export class HomeComponent implements OnInit {
     })
   }
   cadastrar(){
-    
+
     this.tipo.id = this.idTipos
     this.turismo.tipo = this.tipo
-    
+
     this.usuario.id = this.idUsuario
     this.turismo.usuario = this.usuario
-    
+
     console.log(this.turismo)
     this.turismoService.postTurismo(this.turismo).subscribe((resp: Turismo)=>{
       this.turismo = resp

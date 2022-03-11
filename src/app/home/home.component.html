@@ -1,3 +1,5 @@
+
+<!--!Carrousel Principal-->
 <div data-interval="2500" id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -11,14 +13,16 @@
     </div>
   </div>
 </div>
+<!--!Carrousel Principal-->
 
 <div class="mt-5">
   <hr>
 </div>
 
+<!--!Cadastro Turismo-->
 <div class="container-fluid" *ngIf="logado()">
   <div class="row bege d-flex align-items-center">
-    <!--Left Side-->
+<!--Left Side-->
 <div class="col-md-6">
 
   <div class="row d-flex justify-content-center">
@@ -47,14 +51,15 @@
 <!--/Right Side-->
   </div>
 </div>
+<!--!Cadastro Turismo-->
 
 <div class="mt-5">
   <hr>
 </div>
 
-<!--Destaques-->
+<!--*Destaques-->
 <div>
-  <h2>
+  <h2 class="mb-5 mt-5 p-4">
     Destaques
   </h2>
   <div class="card-deck m-0 p-0 mt-5">
@@ -69,8 +74,24 @@
     </div>
   </div>
 </div>
-<!--/Destaques-->
+<!--*Destaques-->
 
+<!--!Por Tipo de turismo-->
+<!-- <div>
+  <h2 class="mb-5 mt-5 p-4">
+    Encontre algo que te agrade
+  </h2>
+  <div class="card-deck m-0 p-0 mt-5">
+    <div class="card" *ngFor="let tipo of listaTipos">
+      <img src="" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{tipo.categoria}}</h5>
+        <p class="card-text">Aonde: {{tipo.local}}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--!Por Tipo de turismo-->
 
 <!-- Modal -->
 <div class="modal fade" id="novoTurismo" tabindex="-1" role="dialog"

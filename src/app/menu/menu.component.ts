@@ -37,8 +37,6 @@ export class MenuComponent implements OnInit {
         environment.token = this.usuarioLogin.token
 
         this.foto = environment.foto
-
-        console.log(environment)
       },
       error: erro => {
         if (erro.status == 401) {

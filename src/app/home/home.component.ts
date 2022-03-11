@@ -36,15 +36,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
 
-    // if (environment.token == '') {
-    //   alert('Sua sessão expirou, faça o login novamente.')
-    //   this.router.navigate(['/home'])
-    // }
+    if (environment.token == '') {
+      alert('Sua sessão expirou, faça o login novamente.')
+      this.router.navigate(['/home'])
+    }
     this.turismoService.refreshToken()
     this.authService.refreshToken()
     this.getAllTipos()
     this.getAllTurismos()
   }
+  
   getAllTipos(){
     this.tipoService.getAllTipo().subscribe((resp: Tipos[])=>{
       this.listaTipos = resp

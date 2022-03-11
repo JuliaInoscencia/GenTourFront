@@ -14,6 +14,11 @@ export class TipoService {
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+  refreshToken() {
+    this.token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+  }
 
   getAllTipo(): Observable<Tipos[]> {
     return this.http.get<Tipos[]>('https://gentour.herokuapp.com/tipo')

@@ -81,4 +81,13 @@ export class HomeComponent implements OnInit {
     this.getAllTurismos()
     })
   }
+
+  logado() {
+    let ok: boolean = false
+
+    if (environment.token != '') {
+      ok = true
+    }
+    return ok
+  }
 }

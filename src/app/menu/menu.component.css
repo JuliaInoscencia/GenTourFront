@@ -19,4 +19,13 @@ nav ul li a:hover{
   background-color: #FAF3EB;
 }
 
+.modal-content{
+  background-color: #E94E52;
+  border: 1px solid #3B4487;
+  border-radius: 50px 50px;
+  color: #3B4487;
+
+}
+
+
 

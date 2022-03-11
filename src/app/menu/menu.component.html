@@ -38,6 +38,9 @@
       <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
+            <a class="nav-link mr-5" href="" data-toggle="modal" data-target="#contato">Contato</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link mr-5" href="" routerLink="/cadastro">Seja GenHost</a>
           </li>
         </ul>
@@ -55,9 +58,7 @@
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logar">
               Entrar
             </a>
-          <li>
-            <a class="dropdown-item" href="#" routerLink="/contato">Contato</a>
-          </li>
+         
           <li>
             <a class="dropdown-item" href="#">Sair</a>
           </li>
@@ -74,7 +75,7 @@
 <!-- Navbar -->
 
 <!-- Modal -->
-<div class="modal fade" id="logar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+<div class="modal fade modalMenu" id="logar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -106,3 +107,52 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade modalContato" id="contato" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Fale Conosco</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="container-fluid">
+          <div class='row d-flex justify-content-center'>
+              <div class="col-md-11 mt-auto mb-4">
+                  <div class="form-group">
+                      <label for="nome">Nome</label>
+                      <input type="Nome" class="form-control" id="exampleFormControlInput1">
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="exampleFormControlInput1" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="exampleFormControlTextarea1" class="form-label">Escreva uma Menssagem </label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

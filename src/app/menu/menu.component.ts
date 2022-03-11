@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
     this.auth.entrar(this.usuarioLogin).subscribe({
       next: (resp: UsuarioLogin) => {
         this.usuarioLogin = resp
-        this.router.navigate(['/tipo'])
+        this.router.navigate(['/home'])
 
         environment.nome =this.usuarioLogin.nome
         environment.foto =this.usuarioLogin.foto

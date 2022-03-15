@@ -75,7 +75,8 @@ export class HomeComponent implements OnInit {
     this.tipo.id = this.idTipos
     this.turismo.tipo = this.tipo
 
-    this.usuario.id = this.idUsuario
+    
+    this.usuario.id = 1
     this.turismo.usuario = this.usuario
 
     console.log(this.turismo)
@@ -94,5 +95,6 @@ export class HomeComponent implements OnInit {
       ok = true
     }
     return ok
+  
   }
 }

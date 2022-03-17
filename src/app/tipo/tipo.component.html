@@ -16,8 +16,8 @@
 
                         <input type="text" class="form-control" id="tipoTurismo" placeholder="Digite a Categoria"
                             [(ngModel)]="tipo.categoria">
-                        <input type="text" class="form-control mt-3" id="local" placeholder="Digite a localização"
-                            [(ngModel)]="tipo.local">
+                        <input type="text" class="form-control mt-3" id="local" placeholder="Coloque o link de sua foto"
+                            [(ngModel)]="tipo.foto">
                         <textarea type="text" class="form-control mt-3" id="temporada" placeholder="Digite uma descrição"
                             [(ngModel)]="tipo.descricao"></textarea>
                     </div>
@@ -33,7 +33,8 @@
     </div>
 </div>
 
-<hr>
+<hr class="mt-5 mb-5">
+
 <div class="container-fluid bege">
     <div class="row mt-5">
         <div class="col-md-12">
@@ -47,14 +48,14 @@
               <thead>
                 <tr>
                   <th scope="col">Categoria</th>
-                  <th scope="col">Local</th>
+                  <th scope="col">Foto</th>
                   <th scope="col">Descrição</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let tipo of listaTipos">
                   <td>{{tipo.categoria}}</td>
-                  <td>{{tipo.local}}</td>
+                  <td class="rounded h-25">{{tipo.foto}}</td>
                   <td>{{tipo.descricao}}</td>
                   <td class="d-flex justify-content-end">
                     <button class="btn btn-info mr-3" [routerLink]="['/tipo-edit', tipo.id]">Editar</button>

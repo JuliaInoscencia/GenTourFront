@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     //   this.router.navigate(['/home'])
     // }
 
-    
+
     this.tipoService.refreshToken()
     this.turismoService.refreshToken()
     this.authService.refreshToken()
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   getAllTurismos(){
     this.turismoService.getAllTurismo().subscribe((resp: Turismo[])=>{
       this.listaTurismo = resp
-      this.listaFiltrada = this.listaTurismo.sort((a, b) => a.preco - b.preco).slice(0,8)
+      this.listaFiltrada = this.listaTurismo.sort((a, b) => a.preco - b.preco).slice(0,4)
     })
   }
   findUsuarioById(){
@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
     this.tipo.id = this.idTipos
     this.turismo.tipo = this.tipo
 
-    
+
     this.usuario.id = 1
     this.turismo.usuario = this.usuario
 
@@ -95,6 +95,6 @@ export class HomeComponent implements OnInit {
       ok = true
     }
     return ok
-  
+
   }
 }

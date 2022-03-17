@@ -8,16 +8,17 @@ import { Turismo } from '../model/Turismo';
   providedIn: 'root'
 })
 export class TurismoService {
+  tokenSalvo: string = environment.token
 
   constructor(private http: HttpClient) {}
 
   token = {
-    headers: new HttpHeaders().set('Authorization', "Basic Z3VpQGVtYWlsLmNvbToxMjM0NTY3OA==")
+    headers: new HttpHeaders().set('Authorization', this.tokenSalvo)
   }
 
   refreshToken(){
     this.token = {
-      headers: new HttpHeaders().set('Authorization', "Basic Z3VpQGVtYWlsLmNvbToxMjM0NTY3OA==")
+      headers: new HttpHeaders().set('Authorization', this.tokenSalvo)
     }
   }
 
@@ -30,14 +31,17 @@ export class TurismoService {
     }
 
     postTurismo(turismo:Turismo): Observable<Turismo>{
+      this.refreshToken()
       return this.http.post<Turismo>('https://gentour.herokuapp.com/turismo/save', turismo, this.token)
     }
 
-    putTurismo(turismo:Turismo): Observable<Turismo>{
+    putTurismo(turismo: Turismo): Observable<Turismo>{
+      this.refreshToken()
       return this.http.put<Turismo>('https://gentour.herokuapp.com/turismo/update', turismo, this.token)
     }
 
-    deleteTurismo(id: number){
+    deleteTurismo(id: number) {
+      this.refreshToken()
       return this.http.delete(`https://gentour.herokuapp.com/turismo/${id}`, this.token)
     }
 }

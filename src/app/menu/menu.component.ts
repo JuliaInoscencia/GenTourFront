@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 import { AuthService } from '../service/auth.service';
+import { TurismoService } from '../service/turismo.service';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +19,8 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private turismo: TurismoService
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,6 @@ export class MenuComponent implements OnInit {
     this.auth.entrar(this.usuarioLogin).subscribe({
       next: (resp: UsuarioLogin) => {
         this.usuarioLogin = resp
-        this.router.navigate(['/home'])
 
         environment.nome =this.usuarioLogin.nome
         environment.foto =this.usuarioLogin.foto
@@ -37,6 +38,8 @@ export class MenuComponent implements OnInit {
         environment.token = this.usuarioLogin.token
 
         this.foto = environment.foto
+        this.auth.idUsuario = this.usuarioLogin.id
+        this.turismo.tokenSalvo = this.usuarioLogin.token
       },
       error: erro => {
         if (erro.status == 401) {

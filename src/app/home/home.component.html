@@ -39,7 +39,7 @@
   <div class="row d-flex justify-content-center mt-3 m">
     <div class="col-md-6">
       <button class="btn btn-dark mr-3" data-toggle="modal" data-target="#novoTurismo">Novo Cadastro</button>
-      <a class="btn btn-outline-dark" href="#">Suas Atrações</a>
+      <a class="btn btn-outline-dark" data-toggle="modal" data-target="#meusTurismos">Suas Atrações</a>
     </div>
   </div>
   <!--Buttons-->
@@ -62,12 +62,12 @@
 </div>
 
 <!--*Destaques-->
-<div>
-  <h2 class="mb-5 mt-5 p-4">
+<div class="bege">
+  <h2 class="mb-5 mt-5 p-4 bege">
     Destaques
   </h2>
-  <div class="card-deck ">
-    <div class="card" *ngFor="let turismo of listaTurismo">
+  <div class="card-deck p-3">
+    <div class="card" *ngFor="let turismo of listaFiltrada">
       <img src="{{turismo.foto}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{turismo.atracao}}</h5>
@@ -80,24 +80,51 @@
 </div>
 <!--*Destaques-->
 
+<div class="mt-5 mb-5">
+  <hr>
+</div>
+
 <!--!Por Tipo de turismo-->
-<div>
-  <h2 class="mb-5 mt-5 p-4">
+<div class="bege">
+  <h2 class="mb-5 mt-5 p-4 bege">
     Encontre algo que te agrade
   </h2>
   <div class="card-deck m-0 p-0 mt-5">
     <div class="card" *ngFor="let tipo of listaTipos">
-      <img src="" class="card-img-top" alt="...">
+      <img src="{{tipo.foto}}" class="d-flex justify-content-center card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{tipo.categoria}}</h5>
-        <p class="card-text">Aonde: {{tipo.local}}</p>
+        <h5 class="card-title text-center">{{tipo.categoria}}</h5>
+
       </div>
     </div>
   </div>
 </div>
 <!--!Por Tipo de turismo-->
 
-<!-- Modal -->
+<div class="mt-5 mb-5">
+  <hr>
+</div>
+
+<!--Todos os turismos-->
+  <div class="bege">
+    <h2 class="mb-5 mt-5 p-4">
+      Destaques
+    </h2>
+    <div class="card-deck p-3">
+      <div class="card" *ngFor="let turismo of listaTurismo">
+        <img src="{{turismo.foto}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{turismo.atracao}}</h5>
+          <p class="card-text">Hospedagem: {{turismo.hospedagem}}<br>
+            Locomoção: {{turismo.locomocao}}</p>
+          <p class="card-text text-right">{{turismo.preco | currency: "BRL"}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Todos os turismos-->
+
+<!-- ? Modal -->
 <div class="modal fade" id="novoTurismo" tabindex="-1" role="dialog"
   aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -186,3 +213,41 @@
     </div>
   </div>
 </div>
+<!-- ? Modal -->
+
+<!-- ? Modal -->
+<div class="modal fade" id="meusTurismos" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Suas Atrações</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row row-cols-2 row-cols-md-2">
+
+          <div class="col">
+            <div class="card" *ngFor="let turismo of listaTurismo">
+              <img src="{{turismo.foto}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)="cadastrar()" data-dismiss="modal">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ? Modal -->

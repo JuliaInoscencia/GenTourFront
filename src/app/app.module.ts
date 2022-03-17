@@ -20,6 +20,9 @@ import { TipoEditComponent } from './edit/tipo-edit/tipo-edit.component';
 import { TipoDeleteComponent } from './delete/tipo-delete/tipo-delete.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { TurismoEditComponent } from './edit/turismo-edit/turismo-edit.component';
+import { TurismoDeleteComponent } from './delete/turismo-delete/turismo-delete.component';
+
 
 registerLocaleData(localept, 'pt')
 @NgModule({
@@ -36,6 +39,9 @@ registerLocaleData(localept, 'pt')
     TipoEditComponent,
     TipoDeleteComponent,
     InicioComponent,
+    TurismoEditComponent,
+    TurismoDeleteComponent,
+    
     ],
   imports: [
     BrowserModule,

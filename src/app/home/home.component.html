@@ -62,11 +62,11 @@
 </div>
 
 <!--*Destaques-->
-<div class="bege">
+<div class="bege container-fluid">
   <h2 class="mb-5 mt-5 p-4 bege">
     Destaques
   </h2>
-  <div class="card-deck p-3">
+  <div class="card-deck">
     <div class="card" *ngFor="let turismo of listaFiltrada">
       <img src="{{turismo.foto}}" class="card-img-top" alt="..." id="myIMG">
       <div class="card-body">
@@ -115,7 +115,7 @@
 
             <div class="card mb-3  mx-auto col-12 col-md-6 col-lg-3" *ngFor="let turismo of listaTurismo">
               <img src="{{turismo.foto}}" class="card-img-top mt-3" alt="..." id="myIMG">
-              <div class="card-body">
+              <div class="card-body mb-3">
                 <h5 class="card-title">{{turismo.atracao}}</h5>
                 <p class="card-text">Hospedagem: {{turismo.hospedagem}}<br>
                   Locomoção: {{turismo.locomocao}}</p>

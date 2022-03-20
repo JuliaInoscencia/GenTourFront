@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
   usuario: Usuario = new Usuario();
   idUsuario = environment.id
 
+  userTurismo: Turismo[]
+
   turismo: Turismo = new Turismo();
+
   listaTurismo: Turismo[]
   listaFiltrada: any = []
 
@@ -59,15 +62,26 @@ export class HomeComponent implements OnInit {
       this.tipo = resp
     })
   }
+
+  findTurismoById(id: number) {
+    this.turismoService.getByIdTurismo(id).subscribe((resp: Turismo) => {
+      this.turismo = resp
+    })
+  }
+
   getAllTurismos(){
     this.turismoService.getAllTurismo().subscribe((resp: Turismo[])=>{
       this.listaTurismo = resp
       this.listaFiltrada = this.listaTurismo.sort((a, b) => a.preco - b.preco).slice(0,4)
     })
   }
-  findUsuarioById(){
-    this.authService.getUsuarioById(this.idUsuario).subscribe((resp: Usuario)=>{
+  findUsuarioById() {
+
+    this.authService.getUsuarioById(this.authService.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
+
+      console.log(this.usuario)
+      console.log(this.turismo)
     })
   }
   cadastrar(){
@@ -76,7 +90,7 @@ export class HomeComponent implements OnInit {
     this.turismo.tipo = this.tipo
 
 
-    this.usuario.id = 1
+    this.usuario.id = this.authService.idUsuario
     this.turismo.usuario = this.usuario
 
     console.log(this.turismo)

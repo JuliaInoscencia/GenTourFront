@@ -32,6 +32,7 @@ export class AuthService {
     return this.http.post<Usuario>("https://gentour.herokuapp.com/usuario/cadastrar", usuario)
   }
   getUsuarioById(id: number): Observable<Usuario>{
+    this.refreshToken()
     return this.http.get<Usuario>(`https://gentour.herokuapp.com/usuario/${id}`, this.token)
   }
   logado() {
